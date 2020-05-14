@@ -1,0 +1,125 @@
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened">
+        <h4><strong>Currently we can offer you this connector in the form of a csv export. Just click on "Export" to download the csv.</strong></h4>
+        <h2>About this file</h2>
+        <p>This file contains information on economic topics adressed throughout the introductory statements of the president of the European Central Bank in front of the european parliament, as well as information on financial sentiment. All calculations were performed down to the granularity level of the single categories of those introductory statements. All categories are matched with their exact start and endtimes.</p>
+        <br>
+        <h2>Details on Data Sources and Methodology</h2>
+        <p>In a first step the European Central Bank’s official website (www.ecb.europa.eu) is automatically crawled and all official transcripts of the hearings in scope are extracted. Every hearing is split into its several categories. In order to check for real-time impact of the information published in the hearings, the categories’ first words are automatically matched with their exact timestamps, generated with the help of the official webcast of each corre- sponding hearing. This provides us with the exact start-time and duration of every category in the hearing. Every category is then analysed on financial tone and topic, using simple calculations for tone and a K-Means algorithm for topics. In a final step tone and topic are merged with returns from the stock market and their associated information content’s real-time impact on financial markets is assessed.</p>
+        <img class="center" src="assets/images/graph_methodology.png" alt="Let the sun rise">
+        <br>
+        <h2>Columns</h2>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef> Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+        
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+            <div>
+                <h1><b>First Glance - Analysis of ECB Hearings</b></h1> 
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+                <div class="wrapper">
+                    <button (click)="opened=!opened" class="cta_right" >Technical Details</button>
+                </div>
+                <div class="wrapper">
+                    <a routerLink="projects"><button class="cta_right" >Export</button></a>
+                </div>
+        
+            </div>    
+        </div>
+        
+        
+        <br>
+        <p>
+            In this analysis we first of all find increased market volatility during the hearings and their single categories. The volatility significantly depends on which topics are addressed throughout a hearing. We interpret this as a sign that market participants follow the hearings in real-time. Additionally we find that certain topics are especially interesting to market participants. Communication about Standard Monetary Measures has a sig- nificant positive impact on asset prices. Furthermore we find that positive (negative) financial tone during a hearing has a significant positive (negative) impact on asset prices. 
+        </p>
+        <br>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+            <mat-card fxFlex="25">
+                <mat-card-header fxLayoutAlign="center">
+                    <mat-card-title>#Analysed ECB Hearings</mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center">
+                    <h1>35</h1>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex="25">
+                <mat-card-header fxLayoutAlign="center">
+                    <mat-card-title>#Different paragraphs in all Hearings</mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center">
+                    <h1>141</h1>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex="25">
+                <mat-card-header fxLayoutAlign="center">
+                    <mat-card-title>#Days since last Hearing</mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center">
+                    <h1>62</h1>
+                </mat-card-content>
+            </mat-card>
+        
+        </div>
+        
+        <br>
+        <br>
+        
+        <div>
+            <app-widget-line></app-widget-line>
+        </div>
+        
+        <br>
+        <br>
+        
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+            <div>
+                <app-widget-pie></app-widget-pie>
+            </div>
+            <mat-card fxFlex="25">
+                <mat-card-header fxLayoutAlign="center">
+                    <mat-card-title>#Different paragraphs in all Hearings</mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center">
+                    <h1>141</h1>
+                </mat-card-content>
+            </mat-card>
+        
+        
+        </div>
+        <br>
+        
+        
+        
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+

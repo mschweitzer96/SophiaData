@@ -1,0 +1,103 @@
+
+<div class="content">
+  <div style="text-align:justify">
+    <div style="text-align:center">
+      <h1>Welcome to SophiaData</h1>
+    </div>
+    <div style="text-align:center">
+      <h3>We are a young German Start-Up and we built Sophia, the Artifical Intelligence that connects researchers and businesses to the world's data.</h3>
+
+      <h3>Sophia will search the worlds information based on your preferences to fulfill your need for reviewed and analysed data. Just try it out.</h3>
+      <div class="wrapper">
+        <a routerLink="projects"><button class="cta" >Search</button></a>
+      </div>
+    </div>
+    <br>
+
+    <img class="center" src="assets/images/HDEVsunrise.gif" alt="Let the sun rise">
+    
+    <br>
+    <div style="text-align: center">  
+      <h1>Build your individual connector.</h1>
+    </div>
+    <br><br>
+
+    <div *ngIf="!name; else forminfo">
+      <form [formGroup]="messageForm" (ngSubmit)="addPost(messageForm.value)">
+        <div class="form-container">
+          <div class="row columns">
+            <h2>Request a customized connector</h2>
+
+            <label>Name
+              <input type="text" formControlName="name">
+            </label>
+          
+
+            <label>Institution/ Company/ Private
+              <input type="text" formControlName="institution">
+            </label>
+
+            <label>E-Mail
+              <input type="text" formControlName="email">
+            </label>
+            <div class="alert" *ngIf="!messageForm.controls['email'].valid && messageForm.controls['email'].touched">Please submit your email address so we can contact you.</div>
+    
+            <label>Description
+              <textarea  formControlName="description"></textarea>
+            </label>
+            <div class="alert" *ngIf="!messageForm.controls['description'].valid && messageForm.controls['description'].touched">Please submit a description between 30 and 500 characters so Sophia knows what it is looking for.</div>
+            
+
+            
+            <input type="submit" class="button expanded" value="Submit Form" [disabled]="!messageForm.valid">
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <ng-template #forminfo>
+      <div class="form-container">
+        <div class="row columns">
+            <h1>{{ name }}</h1>
+            <h1>{{ institution }}</h1>
+            <h1>{{ email }}</h1>
+            <p>{{ description }}</p>
+        </div>
+      </div>
+    </ng-template>
+
+    <br>
+    <br>
+
+    <h1 style="text-align: center;">About Us</h1>
+    <p>
+      We empower businesses and researchers to build their individual world formulas!
+      There has never been more data publicly available. We believe that mining and analyzing publicly available, unstructured data and connecting it
+      to existing datasets can generate enormous value. In order to utilize the world's data, we have built Sophia. An Artifical Intelligence that satisfies your needs with
+      real-time and customizable datasets. We call those datasets "connectors". 
+  </p>
+  <p>
+      Just try it out and define what kind of dataset you are looking for and Sophia will automatically start building your
+      individual connector to the outside world.
+  </p>
+  <p>
+      <b>If you don't know what you are looking for yet, just browse our existing connectors and previous projects.</b>
+  </p>
+  <br>
+  <div class="wrapper">
+    <a routerLink="projects"><button class="cta" >Check out previous projects</button></a>
+</div>
+  <br>
+  <br>
+  <h1 style="text-align: center;">Our Approach</h1>
+  <h1 style="text-align: center;">Latest Research - Customer Wishes - Technology</h1>
+  <p>
+    have three icons for the three bullet points above to explain what we mean: 
+    We believe that a lot of future trends can be found in research already today. We want to close the gap between science and businesses.
+    We are currently looking for co innovation projects to build Sophia based on what our customers need.
+    We want to connect our customers to the worlds data as easy as possible. That means integrating our data sources directly into our client's workflows without tedious analyst work and number crunshing.
+      Sophia is still quite young and currently in beta. This service is completely free for you.
+  </p>
+  </div>
+</div>
+

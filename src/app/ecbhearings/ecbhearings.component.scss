@@ -1,0 +1,29 @@
+.cta_right {
+    background: #85C1E9;
+    border: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    float: right;
+}
+mat-sidenav-container {
+    height: 100%;
+}
+mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+}
+
+mat-sidenav{
+    background-color: #ffffff;
+    width: 50%;
+}
+
+table {
+    width: 100%;
+  }
+  

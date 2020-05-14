@@ -1,3 +1,4 @@
+/**
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineComponent } from './widgets/line/line.component';
@@ -22,3 +23,5 @@ import { PieComponent } from './widgets/pie/pie.component';
   ]
 })
 export class SharedModule { }
+ */
+

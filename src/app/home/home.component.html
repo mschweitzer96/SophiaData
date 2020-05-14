@@ -23,7 +23,7 @@
     <br><br>
 
     <div *ngIf="!name; else forminfo">
-      <form [formGroup]="messageForm" (ngSubmit)="addPost(messageForm.value)">
+      <form [formGroup]="messageForm" (ngSubmit)="addpost(messageForm.value)">
         <div class="form-container">
           <div class="row columns">
             <h2>Request a customized connector</h2>
